@@ -191,3 +191,63 @@
     font-size: 15px;
   }
 }
+
+/* Fundo industrial do portfolio */
+html {
+  background: #08090c;
+}
+
+body {
+  background-color: #08090c;
+  background-image:
+    linear-gradient(rgba(5,6,10,.68), rgba(5,6,10,.80)),
+    url("fundo-industrial.png");
+  background-position: center top;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+main, .projects, .bottom-section {
+  background: transparent;
+}
+
+.project-card,
+.auri-card,
+.n8n-project-card,
+.about-card,
+.skills-card {
+  background-color: rgba(12,14,22,.91);
+  border-color: rgba(255,255,255,.12);
+  color: #f5f6fa;
+}
+
+.project-card h3,
+.about-card h2,
+.skills-card h2,
+.auri-card h2,
+.auri-card h3,
+.section-title h2,
+.section-title p {
+  color: #fff;
+}
+
+.project-card p,
+.auri-card p,
+.auri-card li,
+.about-card p {
+  color: #c4cad7;
+}
+
+.project-card .light-tags span {
+  background: rgba(255,255,255,.10);
+  color: #f0f2f8;
+}
+
+@media (max-width:768px) {
+  body {
+    background-attachment: scroll;
+    background-position: center top;
+    background-size: auto 100vh;
+  }
+}
