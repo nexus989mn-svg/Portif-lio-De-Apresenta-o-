@@ -1,0 +1,10 @@
+{
+  "items": [
+    {"key":"auri","name":"Auri IA","image":""},
+    {"key":"n8n","name":"Automação n8n","image":"n8n-banner.png"},
+    {"key":"sites","name":"Sites e sistemas web","image":""},
+    {"key":"automacoes","name":"Automações com IA","image":""},
+    {"key":"integracoes","name":"Integrações e APIs","image":""}
+  ],
+  "autoColors": false
+}

@@ -1,193 +1,127 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Administração do Portfólio</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Administração do portfólio</title>
 <style>
-*{box-sizing:border-box}
-body{margin:0;padding:20px;background:#0b1020;color:#f5f7ff;font:15px Arial,sans-serif}
-main{max-width:850px;margin:auto}
-h1{font-size:26px}
-p{color:#aab4ce;line-height:1.5}
-.panel{background:#151d33;border:1px solid #293653;border-radius:16px;padding:18px;margin:18px 0}
-.card{background:#0d1529;border-radius:12px;padding:12px;margin-top:14px}
-label{display:block;margin:12px 0 7px}
-input,button{font:inherit;border-radius:9px;padding:12px}
-input[type=text],input[type=url]{width:100%;background:#0b1020;color:white;border:1px solid #394765}
-input[type=file]{max-width:100%}
-button{border:0;background:#7556ef;color:white;font-weight:bold;cursor:pointer;margin:8px 5px 0 0}
-button.secondary{background:#293653}
-.preview{width:100%;max-height:230px;object-fit:contain;background:#080d19;border-radius:10px;margin-top:10px}
-.switch{display:flex;align-items:center;gap:10px}
-.switch input{width:22px;height:22px}
-#sample{padding:22px;border-radius:12px;background:#f7f8fc;color:#10172a;margin-top:12px}
-#status{color:#7ce5b1;overflow-wrap:anywhere}
+*{box-sizing:border-box}body{margin:0;padding:18px;background:#0b1020;color:#f5f7ff;font:15px Arial,sans-serif}main{max-width:850px;margin:auto}p{color:#aab4ce;line-height:1.5}.panel,.card{background:#151d33;border:1px solid #293653;border-radius:14px;padding:16px;margin:14px 0}label{display:block;margin:12px 0 7px}input,button{font:inherit;border-radius:9px;padding:12px;max-width:100%}input[type=password],input[type=url]{width:100%;background:#0b1020;color:white;border:1px solid #394765}button{border:0;background:#7556ef;color:white;font-weight:bold;margin:8px 5px 0 0;cursor:pointer}.preview{width:100%;max-height:220px;object-fit:contain;background:#080d19;margin-top:10px;border-radius:10px}.switch{display:flex;align-items:center;gap:10px}.switch input{width:22px;height:22px}#sample{padding:22px;border-radius:12px;background:#f7f8fc;color:#10172a;margin-top:12px}#status{overflow-wrap:anywhere;color:#7ce5b1}.secondary{background:#293653}
 </style>
 </head>
-<body>
-<main>
+<body><main>
 <h1>Painel do portfólio</h1>
-<p>Gerencie as imagens e teste a paleta de cores antes de publicar.</p>
-
+<p>Escolha as imagens e publique no site.</p>
+<section class="panel">
+<label for="secret">Chave administrativa (ADMIN_SECRET)</label>
+<input id="secret" type="password" autocomplete="current-password" placeholder="Cole a chave configurada na Vercel">
+</section>
 <section class="panel">
 <h2>Imagens dos projetos</h2>
-<p>Escolha uma imagem do celular para cada card. A prévia é exibida abaixo.</p>
 <div id="cards"></div>
-<button id="save">Salvar rascunho neste aparelho</button>
-</section>
-
-<section class="panel">
-<h2>Cores automáticas</h2>
-<label class="switch">
-<input type="checkbox" id="autoColors">
-Ativar cores extraídas das imagens
-</label>
-<p>Quando ativado, o painel seleciona cores marcantes das imagens e cria um fundo com gradientes. Desativado, mantém as cores originais.</p>
-<div id="sample">
-<h3>Prévia do tema</h3>
-<p>As cores aparecerão aqui quando você ativar a opção.</p>
-</div>
-<button id="preview">Atualizar prévia</button>
-<button id="reset" class="secondary">Restaurar tema original</button>
+<label class="switch"><input id="autoColors" type="checkbox"> Usar cores das imagens no fundo do site</label>
+<div id="sample"><h3>Prévia das cores</h3><p>Veja aqui o resultado antes de publicar.</p></div>
+<button id="preview" class="secondary">Gerar prévia</button>
+<button id="publish">PUBLICAR ALTERAÇÕES</button>
 <p id="status" role="status"></p>
 </section>
 </main>
-
 <script>
-const defaults = [
-  {name:"Auri IA", image:""},
-  {name:"n8n", image:"n8n-banner.png"},
-  {name:"Sites e sistemas", image:""},
-  {name:"Automações com IA", image:""},
-  {name:"Integrações e APIs", image:""}
+const defaults=[
+ {key:"auri",name:"Auri IA",image:""},
+ {key:"n8n",name:"Automação n8n",image:"n8n-banner.png"},
+ {key:"sites",name:"Sites e sistemas web",image:""},
+ {key:"automacoes",name:"Automações com IA",image:""},
+ {key:"integracoes",name:"Integrações e APIs",image:""}
 ];
-
-const $ = id => document.getElementById(id);
-let items = defaults.map(x=>({...x}));
-let originalBackground = "";
+const $=id=>document.getElementById(id);
+let items=defaults.map(x=>({...x}));
 
 function render(){
-  $("cards").innerHTML = "";
-  items.forEach((item,i)=>{
-    const card = document.createElement("div");
-    card.className = "card";
-    const label = document.createElement("label");
-    label.textContent = item.name;
-    const file = document.createElement("input");
-    file.type = "file";
-    file.accept = "image/*";
-    const url = document.createElement("input");
-    url.type = "url";
-    url.placeholder = "Ou URL pública da imagem";
-    url.value = item.image.startsWith("data:") ? "" : item.image;
-    const img = document.createElement("img");
-    img.className = "preview";
-    img.alt = "Prévia de " + item.name;
-    img.hidden = !item.image;
-    if(item.image) img.src = item.image;
-    file.addEventListener("change",()=>{
-      const f = file.files[0];
-      if(!f) return;
-      if(!f.type.startsWith("image/")) return alert("Escolha um arquivo de imagem.");
-      if(f.size > 5*1024*1024) return alert("A imagem deve ter até 5 MB.");
-      const reader = new FileReader();
-      reader.onload = ()=>{
-        item.image = reader.result;
-        img.src = item.image;
-        img.hidden = false;
-        url.value = "";
-      };
-      reader.readAsDataURL(f);
-    });
-    url.addEventListener("change",()=>{
-      item.image = url.value.trim();
-      img.src = item.image;
-      img.hidden = !item.image;
-    });
-    card.append(label,file,url,img);
-    $("cards").append(card);
+ const root=$("cards");root.replaceChildren();
+ items.forEach(item=>{
+  const card=document.createElement("div");card.className="card";
+  const title=document.createElement("b");title.textContent=item.name;
+  const file=document.createElement("input");file.type="file";file.accept="image/png,image/jpeg,image/webp";
+  file.setAttribute("aria-label","Imagem de "+item.name);
+  const url=document.createElement("input");url.type="url";url.placeholder="Ou URL pública da imagem";
+  url.value=/^https:\/\//i.test(item.image)?item.image:"";
+  const img=document.createElement("img");img.className="preview";img.alt=title.textContent;
+  img.hidden=!item.image;if(item.image)img.src=item.image;
+  file.addEventListener("change",()=>{
+   const f=file.files[0];if(!f)return;
+   if(!["image/png","image/jpeg","image/webp"].includes(f.type))return alert("Use PNG, JPG ou WebP.");
+   if(f.size>5*1024*1024)return alert("A imagem deve ter até 5 MB.");
+   const reader=new FileReader();
+   reader.onload=()=>{item.image=reader.result;img.src=item.image;img.hidden=false;url.value="";};
+   reader.readAsDataURL(f);
   });
+  url.addEventListener("change",()=>{item.image=url.value.trim();img.src=item.image;img.hidden=!item.image;});
+  card.append(title,file,url,img);root.append(card);
+ });
 }
 
-function extractColors(image){
-  return new Promise(resolve=>{
-    const img = new Image();
-    img.onload = ()=>{
-      const canvas = document.createElement("canvas");
-      canvas.width = 40; canvas.height = 40;
-      const ctx = canvas.getContext("2d",{willReadFrequently:true});
-      ctx.drawImage(img,0,0,40,40);
-      const data = ctx.getImageData(0,0,40,40).data;
-      const buckets = {};
-      for(let i=0;i<data.length;i+=4){
-        if(data[i+3]<150) continue;
-        const r=Math.round(data[i]/32)*32;
-        const g=Math.round(data[i+1]/32)*32;
-        const b=Math.round(data[i+2]/32)*32;
-        const key=`rgb(${Math.min(r,255)},${Math.min(g,255)},${Math.min(b,255)})`;
-        const saturation=Math.max(r,g,b)-Math.min(r,g,b);
-        buckets[key]=(buckets[key]||0)+1+saturation/100;
-      }
-      resolve(Object.entries(buckets).sort((a,b)=>b[1]-a[1]).slice(0,1).map(x=>x[0]));
-    };
-    img.onerror=()=>resolve([]);
-    img.src=image;
+async function makePreview(){
+ if(!$("autoColors").checked){
+  $("sample").style.background="#f7f8fc";$("sample").style.color="#10172a";
+  $("status").textContent="Tema original selecionado.";return;
+ }
+ const colors=[];
+ for(const item of items){
+  if(!item.image)continue;
+  const color=await new Promise(resolve=>{
+   const im=new Image();
+   im.onload=()=>{
+    try{
+     const c=document.createElement("canvas");c.width=c.height=20;
+     const x=c.getContext("2d",{willReadFrequently:true});x.drawImage(im,0,0,20,20);
+     const d=x.getImageData(0,0,20,20).data;let best="#7556ef",score=-1;
+     for(let i=0;i<d.length;i+=4){
+      const mx=Math.max(d[i],d[i+1],d[i+2]),mn=Math.min(d[i],d[i+1],d[i+2]);
+      const s=mx?((mx-mn)/mx)*(mx/255):0;
+      if(d[i+3]>150&&s>score){score=s;best="#"+[d[i],d[i+1],d[i+2]].map(v=>v.toString(16).padStart(2,"0")).join("");}
+     }resolve(best);
+    }catch{resolve("#7556ef");}
+   };im.onerror=()=>resolve("#7556ef");im.src=item.image;
   });
+  colors.push(color);
+ }
+ if(!colors.length){$("status").textContent="Escolha imagens para gerar as cores.";return;}
+ $("sample").style.background=`radial-gradient(ellipse at 10% 10%,${colors[0]}99,transparent 60%),radial-gradient(ellipse at 90% 90%,${colors[1]||colors[0]}99,transparent 60%),#11182b`;
+ $("sample").style.color="#fff";$("status").textContent="Prévia de cores gerada.";
 }
 
-async function updatePreview(){
-  const sample=$("sample");
-  if(!$("autoColors").checked){
-    sample.style.background="#f7f8fc";
-    sample.style.color="#10172a";
-    $("status").textContent="Cores automáticas desativadas. Tema original preservado.";
-    return;
+$("preview").onclick=makePreview;
+$("publish").onclick=async()=>{
+ const secret=$("secret").value.trim();
+ if(!secret){$("status").textContent="Informe sua chave administrativa.";return;}
+ const btn=$("publish");btn.disabled=true;btn.textContent="PUBLICANDO...";
+ $("status").textContent="Enviando alterações...";
+ try{
+  const response=await fetch("/api/admin",{
+   method:"POST",
+   headers:{"Content-Type":"application/json","x-admin-secret":secret},
+   body:JSON.stringify({items,autoColors:$("autoColors").checked})
+  });
+  const data=await response.json();
+  if(!response.ok)throw new Error(data.error+(data.detail?" — "+data.detail:""));
+  $("status").textContent=data.message;
+ }catch(e){$("status").textContent="Erro: "+e.message;}
+ finally{btn.disabled=false;btn.textContent="PUBLICAR ALTERAÇÕES";}
+};
+
+async function init(){
+ try{
+  const r=await fetch("/api/admin");
+  if(r.ok){
+   const s=await r.json();
+   if(Array.isArray(s.items))items=defaults.map(d=>({...d,...(s.items.find(x=>x.key===d.key)||{})}));
+   $("autoColors").checked=!!s.autoColors;
   }
-  const colors=[];
-  for(const item of items){
-    if(!item.image) continue;
-    const found=await extractColors(item.image);
-    colors.push(...found);
-  }
-  if(!colors.length){
-    $("status").textContent="Escolha imagens válidas para gerar a paleta.";
-    return;
-  }
-  const unique=[...new Set(colors)].slice(0,4);
-  sample.style.background=`radial-gradient(ellipse at 10% 10%, ${unique[0]}55, transparent 60%), radial-gradient(ellipse at 90% 90%, ${unique[1]||unique[0]}55, transparent 60%), #11182b`;
-  sample.style.color="#ffffff";
-  $("status").textContent="Prévia gerada com "+unique.length+" cores. Ainda não foi publicada.";
+ }catch{}
+ render();
 }
-
-$("preview").addEventListener("click",updatePreview);
-$("autoColors").addEventListener("change",updatePreview);
-$("save").addEventListener("click",()=>{
-  try{
-    localStorage.setItem("portfolio-admin-draft",JSON.stringify({
-      items,
-      autoColors:$("autoColors").checked
-    }));
-    $("status").textContent="Rascunho salvo neste aparelho. Ainda não foi publicado no site.";
-  }catch(e){
-    $("status").textContent="Não foi possível salvar. Reduza o tamanho das imagens.";
-  }
-});
-$("reset").addEventListener("click",()=>{
-  $("autoColors").checked=false;
-  $("sample").style.background="#f7f8fc";
-  $("sample").style.color="#10172a";
-  $("status").textContent="Prévia restaurada. Nenhuma alteração foi publicada.";
-});
-
-try{
-  const saved=JSON.parse(localStorage.getItem("portfolio-admin-draft")||"null");
-  if(saved && Array.isArray(saved.items)){
-    items=saved.items;
-    $("autoColors").checked=!!saved.autoColors;
-  }
-}catch(e){}
-render();
+init();
 </script>
 </body>
 </html>
