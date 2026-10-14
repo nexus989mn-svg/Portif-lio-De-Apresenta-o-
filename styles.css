@@ -655,3 +655,24 @@ header a,
   -webkit-box-decoration-break: clone;
 }
 
+
+
+/* Imagem principal da Auri IA */
+.phone-image-column {
+  min-width: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+}
+
+.phone-image-column img {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  max-height: 620px;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 14px;
+}
