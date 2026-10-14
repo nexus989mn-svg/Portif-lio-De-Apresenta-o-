@@ -620,3 +620,22 @@ header a,
 }
 
 /* Evita alterar os ícones coloridos das tecnologias e as fotos */
+
+/* Botão principal Auri IA: branco com detalhes vermelhos */
+.auri-description .button-purple {
+  background: #ffffff !important;
+  color: #e51b23 !important;
+  border: 1px solid #ffffff !important;
+  box-shadow: none !important;
+}
+
+.auri-description .button-purple span {
+  color: #e51b23 !important;
+}
+
+/* Ícones do fluxo: fundo branco e símbolos vermelhos */
+.auri-description .workflow .node {
+  background: #ffffff !important;
+  color: #e51b23 !important;
+  border: 1px solid #e5e7eb !important;
+}
