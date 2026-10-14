@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Administração do Portfólio</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;padding:20px;background:#0b1020;color:#f5f7ff;font:15px Arial,sans-serif}
+main{max-width:850px;margin:auto}
+h1{font-size:26px}
+p{color:#aab4ce;line-height:1.5}
+.panel{background:#151d33;border:1px solid #293653;border-radius:16px;padding:18px;margin:18px 0}
+.card{background:#0d1529;border-radius:12px;padding:12px;margin-top:14px}
+label{display:block;margin:12px 0 7px}
+input,button{font:inherit;border-radius:9px;padding:12px}
+input[type=text],input[type=url]{width:100%;background:#0b1020;color:white;border:1px solid #394765}
+input[type=file]{max-width:100%}
+button{border:0;background:#7556ef;color:white;font-weight:bold;cursor:pointer;margin:8px 5px 0 0}
+button.secondary{background:#293653}
+.preview{width:100%;max-height:230px;object-fit:contain;background:#080d19;border-radius:10px;margin-top:10px}
+.switch{display:flex;align-items:center;gap:10px}
+.switch input{width:22px;height:22px}
+#sample{padding:22px;border-radius:12px;background:#f7f8fc;color:#10172a;margin-top:12px}
+#status{color:#7ce5b1;overflow-wrap:anywhere}
+</style>
+</head>
+<body>
+<main>
+<h1>Painel do portfólio</h1>
+<p>Gerencie as imagens e teste a paleta de cores antes de publicar.</p>
+
+<section class="panel">
+<h2>Imagens dos projetos</h2>
+<p>Escolha uma imagem do celular para cada card. A prévia é exibida abaixo.</p>
+<div id="cards"></div>
+<button id="save">Salvar rascunho neste aparelho</button>
+</section>
+
+<section class="panel">
+<h2>Cores automáticas</h2>
+<label class="switch">
+<input type="checkbox" id="autoColors">
+Ativar cores extraídas das imagens
+</label>
+<p>Quando ativado, o painel seleciona cores marcantes das imagens e cria um fundo com gradientes. Desativado, mantém as cores originais.</p>
+<div id="sample">
+<h3>Prévia do tema</h3>
+<p>As cores aparecerão aqui quando você ativar a opção.</p>
+</div>
+<button id="preview">Atualizar prévia</button>
+<button id="reset" class="secondary">Restaurar tema original</button>
+<p id="status" role="status"></p>
+</section>
+</main>
+
+<script>
+const defaults = [
+  {name:"Auri IA", image:""},
+  {name:"n8n", image:"n8n-banner.png"},
+  {name:"Sites e sistemas", image:""},
+  {name:"Automações com IA", image:""},
+  {name:"Integrações e APIs", image:""}
+];
+
+const $ = id => document.getElementById(id);
+let items = defaults.map(x=>({...x}));
+let originalBackground = "";
+
+function render(){
+  $("cards").innerHTML = "";
+  items.forEach((item,i)=>{
+    const card = document.createElement("div");
+    card.className = "card";
+    const label = document.createElement("label");
+    label.textContent = item.name;
+    const file = document.createElement("input");
+    file.type = "file";
+    file.accept = "image/*";
+    const url = document.createElement("input");
+    url.type = "url";
+    url.placeholder = "Ou URL pública da imagem";
+    url.value = item.image.startsWith("data:") ? "" : item.image;
+    const img = document.createElement("img");
+    img.className = "preview";
+    img.alt = "Prévia de " + item.name;
+    img.hidden = !item.image;
+    if(item.image) img.src = item.image;
+    file.addEventListener("change",()=>{
+      const f = file.files[0];
+      if(!f) return;
+      if(!f.type.startsWith("image/")) return alert("Escolha um arquivo de imagem.");
+      if(f.size > 5*1024*1024) return alert("A imagem deve ter até 5 MB.");
+      const reader = new FileReader();
+      reader.onload = ()=>{
+        item.image = reader.result;
+        img.src = item.image;
+        img.hidden = false;
+        url.value = "";
+      };
+      reader.readAsDataURL(f);
+    });
+    url.addEventListener("change",()=>{
+      item.image = url.value.trim();
+      img.src = item.image;
+      img.hidden = !item.image;
+    });
+    card.append(label,file,url,img);
+    $("cards").append(card);
+  });
+}
+
+function extractColors(image){
+  return new Promise(resolve=>{
+    const img = new Image();
+    img.onload = ()=>{
+      const canvas = document.createElement("canvas");
+      canvas.width = 40; canvas.height = 40;
+      const ctx = canvas.getContext("2d",{willReadFrequently:true});
+      ctx.drawImage(img,0,0,40,40);
+      const data = ctx.getImageData(0,0,40,40).data;
+      const buckets = {};
+      for(let i=0;i<data.length;i+=4){
+        if(data[i+3]<150) continue;
+        const r=Math.round(data[i]/32)*32;
+        const g=Math.round(data[i+1]/32)*32;
+        const b=Math.round(data[i+2]/32)*32;
+        const key=`rgb(${Math.min(r,255)},${Math.min(g,255)},${Math.min(b,255)})`;
+        const saturation=Math.max(r,g,b)-Math.min(r,g,b);
+        buckets[key]=(buckets[key]||0)+1+saturation/100;
+      }
+      resolve(Object.entries(buckets).sort((a,b)=>b[1]-a[1]).slice(0,1).map(x=>x[0]));
+    };
+    img.onerror=()=>resolve([]);
+    img.src=image;
+  });
+}
+
+async function updatePreview(){
+  const sample=$("sample");
+  if(!$("autoColors").checked){
+    sample.style.background="#f7f8fc";
+    sample.style.color="#10172a";
+    $("status").textContent="Cores automáticas desativadas. Tema original preservado.";
+    return;
+  }
+  const colors=[];
+  for(const item of items){
+    if(!item.image) continue;
+    const found=await extractColors(item.image);
+    colors.push(...found);
+  }
+  if(!colors.length){
+    $("status").textContent="Escolha imagens válidas para gerar a paleta.";
+    return;
+  }
+  const unique=[...new Set(colors)].slice(0,4);
+  sample.style.background=`radial-gradient(ellipse at 10% 10%, ${unique[0]}55, transparent 60%), radial-gradient(ellipse at 90% 90%, ${unique[1]||unique[0]}55, transparent 60%), #11182b`;
+  sample.style.color="#ffffff";
+  $("status").textContent="Prévia gerada com "+unique.length+" cores. Ainda não foi publicada.";
+}
+
+$("preview").addEventListener("click",updatePreview);
+$("autoColors").addEventListener("change",updatePreview);
+$("save").addEventListener("click",()=>{
+  try{
+    localStorage.setItem("portfolio-admin-draft",JSON.stringify({
+      items,
+      autoColors:$("autoColors").checked
+    }));
+    $("status").textContent="Rascunho salvo neste aparelho. Ainda não foi publicado no site.";
+  }catch(e){
+    $("status").textContent="Não foi possível salvar. Reduza o tamanho das imagens.";
+  }
+});
+$("reset").addEventListener("click",()=>{
+  $("autoColors").checked=false;
+  $("sample").style.background="#f7f8fc";
+  $("sample").style.color="#10172a";
+  $("status").textContent="Prévia restaurada. Nenhuma alteração foi publicada.";
+});
+
+try{
+  const saved=JSON.parse(localStorage.getItem("portfolio-admin-draft")||"null");
+  if(saved && Array.isArray(saved.items)){
+    items=saved.items;
+    $("autoColors").checked=!!saved.autoColors;
+  }
+}catch(e){}
+render();
+</script>
+</body>
+</html>
