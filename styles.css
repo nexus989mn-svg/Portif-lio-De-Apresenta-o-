@@ -562,3 +562,61 @@ header a,
     object-fit: contain !important;
   }
 }
+
+/* Tema vermelho industrial — identidade visual */
+:root {
+  --accent-red: #ff252d;
+  --accent-red-light: #ff4b52;
+}
+
+/* Textos e destaques que eram azuis */
+.hero h1 em {
+  background-image: linear-gradient(90deg, #ff252d, #d90b18);
+}
+
+.nav a.selected,
+.section-title > a,
+.details-link {
+  color: var(--accent-red);
+}
+
+.nav a.selected:after {
+  background: var(--accent-red);
+}
+
+.eyebrow i {
+  border-color: var(--accent-red);
+}
+
+.service-icon {
+  color: var(--accent-red);
+}
+
+.button span {
+  color: var(--accent-red-light);
+}
+
+/* Botões escuros: fundo preto preservado, texto vermelho */
+.button-dark {
+  background: #070b19;
+  color: var(--accent-red-light);
+  border-color: rgba(255, 37, 45, .35);
+}
+
+.button-dark span {
+  color: var(--accent-red);
+}
+
+/* Detalhes e etiquetas de projeto */
+.badge {
+  background: linear-gradient(90deg, #d90b18, #ff454b);
+  color: #fff;
+}
+
+.auri-description li:before,
+.automation-column li:before {
+  background: var(--accent-red);
+  color: #fff;
+}
+
+/* Evita alterar os ícones coloridos das tecnologias e as fotos */
