@@ -495,3 +495,38 @@ header a,
   object-fit: cover;
   object-position: center;
 }
+
+/* Ajuste visual do card de automações */
+.project-grid-featured .automation-art.automation-art-image {
+  width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+  min-height: 0;
+  margin: 18px 0;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.14);
+  border-radius: 12px;
+  background: #080a0e;
+  box-shadow: none;
+}
+
+.project-grid-featured .automation-art.automation-art-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+  object-position: center;
+  border-radius: inherit;
+}
+
+.project-grid-featured .project-card {
+  overflow: hidden;
+}
+
+@media (max-width: 600px) {
+  .project-grid-featured .automation-art.automation-art-image {
+    aspect-ratio: 4 / 3;
+  }
+}
