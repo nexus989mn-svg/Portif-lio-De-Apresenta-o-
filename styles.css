@@ -530,3 +530,35 @@ header a,
     aspect-ratio: 4 / 3;
   }
 }
+
+/* Correção definitiva do enquadramento do fluxo n8n */
+.project-grid-featured .automation-art.automation-art-image {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+  padding: 0 !important;
+  overflow: hidden !important;
+  background: #080a0e !important;
+}
+
+.project-grid-featured .automation-art.automation-art-image img {
+  display: block !important;
+  width: 100% !important;
+  height: auto !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+
+@media (max-width: 600px) {
+  .project-grid-featured .automation-art.automation-art-image {
+    aspect-ratio: auto !important;
+  }
+
+  .project-grid-featured .automation-art.automation-art-image img {
+    width: 100% !important;
+    height: auto !important;
+    object-fit: contain !important;
+  }
+}
