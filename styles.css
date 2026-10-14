@@ -307,3 +307,56 @@ nav,
   color: #fff;
 }
 
+
+/* CONTRASTE E INTEGRAÇÃO VISUAL */
+:root {
+  color-scheme: dark;
+}
+
+.services,
+.services-grid,
+.highlights,
+.highlights-grid,
+.features,
+.features-grid {
+  background: rgba(5, 7, 14, 0.72) !important;
+}
+
+.services h2,
+.services h3,
+.services p,
+.services span,
+.services-grid h2,
+.services-grid h3,
+.services-grid p,
+.highlights h2,
+.highlights h3,
+.highlights p,
+.features h2,
+.features h3,
+.features p {
+  color: #f4f6ff !important;
+  text-shadow: 0 1px 5px rgba(0, 0, 0, 0.75);
+}
+
+.hero-reference {
+  display: block;
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+  object-position: center;
+  margin: 0;
+}
+
+/* CARDS DESTACADOS E LEGÍVEIS */
+.project-card,
+.n8n-project-card {
+  background: rgba(9, 13, 31, 0.94);
+  border-color: rgba(255, 255, 255, 0.12);
+}
+
+/* EVITA TEXTO ESCURO SOBRE O FUNDO INDUSTRIAL */
+body {
+  color: #f4f6ff;
+}
+
