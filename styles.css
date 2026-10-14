@@ -639,3 +639,19 @@ header a,
   color: #e51b23 !important;
   border: 1px solid #e5e7eb !important;
 }
+
+/* Fundo branco apenas atrás das duas frases apagadas */
+.about-card p,
+.contact p {
+  display: table;
+  width: fit-content;
+  max-width: 100%;
+  padding: 8px 10px;
+  border-radius: 6px;
+  background: #ffffff !important;
+  color: #d71920 !important;
+  font-weight: 500;
+  box-decoration-break: clone;
+  -webkit-box-decoration-break: clone;
+}
+
