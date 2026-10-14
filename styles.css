@@ -124,3 +124,70 @@
   max-height: 360px;
   object-fit: contain;
 }
+
+/* Refinamento do card de automação n8n */
+.project-grid-featured {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 16px;
+  margin: 16px 0 22px;
+}
+
+.project-grid-featured .project-card {
+  overflow: hidden;
+}
+
+.project-grid-featured .automation-art {
+  height: 190px;
+  min-height: 190px;
+  border: 1px solid #29375d;
+  border-radius: 14px;
+  background:
+    radial-gradient(ellipse at 20% 25%, rgba(255, 45, 130, .20), transparent 42%),
+    radial-gradient(ellipse at 80% 70%, rgba(120, 65, 255, .23), transparent 45%),
+    linear-gradient(145deg, #151b35, #080d1e);
+  gap: 22px;
+  position: relative;
+  isolation: isolate;
+}
+
+.project-grid-featured .automation-art > div {
+  width: min(88%, 470px);
+  justify-content: center;
+  gap: clamp(7px, 3vw, 20px);
+}
+
+.project-grid-featured .automation-art span {
+  width: clamp(42px, 12vw, 58px);
+  height: clamp(42px, 12vw, 58px);
+  border-radius: 13px;
+  font-size: 24px;
+  box-shadow: 0 7px 20px rgba(0, 0, 0, .22);
+  border: 1px solid rgba(255,255,255,.08);
+}
+
+.project-grid-featured .automation-art i {
+  font-size: 20px;
+  color: #aab8e7;
+}
+
+.project-grid-featured .automation-art small {
+  font-size: 12px;
+  letter-spacing: .4px;
+  color: #bac6e8;
+}
+
+@media (max-width: 480px) {
+  .project-grid-featured .automation-art {
+    height: 165px;
+    min-height: 165px;
+  }
+
+  .project-grid-featured .automation-art > div {
+    gap: 7px;
+  }
+
+  .project-grid-featured .automation-art i {
+    font-size: 15px;
+  }
+}
