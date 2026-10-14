@@ -110,3 +110,17 @@
   width: 110px;
   height: 110px;
 }
+
+.n8n-project-image {
+  width: 100%;
+  overflow: hidden;
+  border-radius: 12px;
+}
+
+.n8n-project-image img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-height: 360px;
+  object-fit: contain;
+}
