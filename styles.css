@@ -360,3 +360,43 @@ body {
   color: #f4f6ff;
 }
 
+
+/* CORREÇÃO DEFINITIVA DOS TEXTOS APAGADOS */
+header .logo-text,
+header .brand-name,
+header .brand strong,
+header .brand h1,
+header .brand h2,
+header a,
+.navbar .brand,
+.navbar .brand strong {
+  color: #10172b !important;
+  opacity: 1 !important;
+}
+
+.services *,
+.services-grid *,
+.highlights-grid *,
+.features *,
+.highlights *,
+.service-item *,
+.service-card * {
+  opacity: 1 !important;
+}
+
+.services p,
+.services-grid p,
+.highlights-grid p,
+.features p,
+.highlights p,
+.service-item p,
+.service-card p,
+.services small,
+.services-grid small,
+.highlights-grid small,
+.features small {
+  color: #e2e8f0 !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 3px #000 !important;
+}
+
