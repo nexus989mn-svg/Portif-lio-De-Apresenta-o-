@@ -450,3 +450,29 @@ header a,
   -webkit-text-fill-color: #111827 !important;
 }
 
+
+/* FUNDO PRETO DO SITE A PARTIR DA FOTO */
+.hero-reference ~ section,
+#servicos,
+#services,
+.services,
+.services-section,
+.highlights,
+#projetos,
+#projects,
+.projects-section,
+.about-section,
+.skills-section,
+.contact-section {
+  background-color: #050505 !important;
+  background-image: none !important;
+}
+
+/* Mantém os cards visíveis sobre o preto */
+.project-card,
+.n8n-project-card,
+.service-card,
+.feature-card {
+  background-color: #0b1020 !important;
+}
+
