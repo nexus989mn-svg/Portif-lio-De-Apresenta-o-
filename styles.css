@@ -251,3 +251,59 @@ main, .projects, .bottom-section {
     background-size: auto 100vh;
   }
 }
+
+/* FUNDO INDUSTRIAL EM TODO O SITE */
+html {
+  background: #08090e !important;
+}
+
+body {
+  background-color: #08090e !important;
+  background-image:
+    linear-gradient(rgba(5, 7, 13, .40), rgba(5, 7, 13, .58)),
+    url("./fundo-industrial.png") !important;
+  background-position: center top !important;
+  background-size: cover !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Remove o branco das seções, inclusive do início */
+main,
+main > section,
+.hero,
+.hero-section,
+.hero-content,
+#inicio,
+#sobre,
+#habilidades,
+#servicos,
+#contato,
+.services,
+.services-section,
+.highlights,
+.about-section,
+.skills-section,
+.contact-section {
+  background-color: transparent !important;
+  background-image: none;
+}
+
+/* Mantém o cabeçalho branco */
+header,
+nav,
+.navbar,
+.site-header {
+  background-color: #fff !important;
+}
+
+/* Preserva a leitura dos textos sobre o fundo */
+.hero h1,
+.hero h2,
+.hero p,
+.hero-section h1,
+.hero-section h2,
+.hero-section p {
+  color: #fff;
+}
+
