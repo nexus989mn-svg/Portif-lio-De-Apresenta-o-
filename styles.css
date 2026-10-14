@@ -400,3 +400,20 @@ header a,
   text-shadow: 0 1px 3px #000 !important;
 }
 
+
+/* SERVIÇOS ABAIXO DA FOTO: TEXTO LEGÍVEL */
+.hero-reference ~ * p,
+.service-item p,
+.service-card p,
+.feature-item p,
+.feature-card p,
+.highlight-item p,
+.highlight-card p,
+.services-overview p,
+.services-strip p,
+.benefit-item p {
+  color: #f1f5f9 !important;
+  opacity: 1 !important;
+  text-shadow: 0 1px 4px #000 !important;
+}
+
