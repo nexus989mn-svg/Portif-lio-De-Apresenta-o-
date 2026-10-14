@@ -417,3 +417,36 @@ header a,
   text-shadow: 0 1px 4px #000 !important;
 }
 
+
+/* CORRIGE O NOME APAGADO NO CABEÇALHO BRANCO */
+header,
+header * ,
+.navbar,
+.navbar * ,
+.site-header,
+.site-header * {
+  --header-text-fix: #111827;
+}
+
+header h1,
+header h2,
+header h3,
+header p,
+header span,
+header strong,
+header b,
+header a,
+.navbar h1,
+.navbar h2,
+.navbar p,
+.navbar span,
+.navbar strong,
+.site-header h1,
+.site-header p,
+.site-header span,
+.site-header strong {
+  color: #111827 !important;
+  opacity: 1 !important;
+  -webkit-text-fill-color: #111827 !important;
+}
+
