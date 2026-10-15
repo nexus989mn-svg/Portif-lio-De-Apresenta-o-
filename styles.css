@@ -676,3 +676,15 @@ header a,
   object-position: center;
   border-radius: 14px;
 }
+
+
+/* Imagem do dashboard no cartão Sites e Sistemas Web */
+.dashboard-image {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  object-fit: contain;
+  border-radius: 12px;
+  margin: 16px 0;
+}
