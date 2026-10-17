@@ -6,6 +6,92 @@
 <meta name="theme-color" content="#f7f8fc">
 <title>Wesley Santos | Desenvolvedor de Soluções com IA</title>
 <link rel="stylesheet" href="styles.css">
+
+<style id="projects-carousel-styles">
+.projects-section { min-width: 0; }
+.projects-carousel {
+  display: flex !important;
+  flex-wrap: nowrap !important;
+  gap: 20px;
+  overflow-x: auto;
+  overflow-y: hidden;
+  scroll-snap-type: x mandatory;
+  overscroll-behavior-x: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none;
+  padding: 8px 2px 18px;
+}
+.projects-carousel::-webkit-scrollbar { display: none; }
+.projects-carousel > .project-card {
+  box-sizing: border-box;
+  flex: 0 0 calc((100% - 20px) / 2);
+  min-width: 0;
+  scroll-snap-align: start;
+  border: 1px solid #29272d;
+  border-radius: 22px;
+  padding: 24px;
+  background: linear-gradient(145deg, #171619, #101012);
+}
+.project-card-lounge { border-color: #45304b !important; }
+.projects-carousel .project-card h3 {
+  margin: 12px 0;
+  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+}
+.projects-carousel .project-card p {
+  line-height: 1.75;
+  color: #aaa7b3;
+}
+.project-label, .placeholder-status {
+  display: inline-block;
+  font-size: .75rem;
+  letter-spacing: .1em;
+  color: #ff596d;
+  font-weight: 800;
+}
+.project-tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 18px 0;
+}
+.project-tags span {
+  padding: 8px 11px;
+  border: 1px solid #343139;
+  border-radius: 10px;
+  color: #c8c4d0;
+  font-size: .85rem;
+}
+.project-link {
+  display: inline-flex;
+  gap: 10px;
+  align-items: center;
+  margin-top: 14px;
+  color: #ff6476;
+  font-weight: 750;
+  text-decoration: none;
+}
+.project-placeholder {
+  min-height: 250px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-style: dashed !important;
+  background: #101012 !important;
+}
+.placeholder-number {
+  color: #8b52e8;
+  font-size: 2rem;
+  font-weight: 800;
+}
+@media (max-width: 650px) {
+  .projects-carousel { gap: 14px; }
+  .projects-carousel > .project-card {
+    flex-basis: 84%;
+    padding: 20px;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="header">
@@ -39,9 +125,12 @@
     <article><span class="service-icon">⬡</span><div><strong>Soluções Personalizadas</strong><small>Foco no seu negócio</small></div></article>
   </section>
 
-  <section class="projects section" id="projetos">
-    <div class="section-title"><h2>Projetos em destaque</h2><p>Soluções reais desenvolvidas por mim, com foco em automação e atendimento.</p><a href="#auri">Ver todos os projetos <span>→</span></a></div>
-
+  <section id="projects" class="projects-section">
+  <div class="projects-heading">
+    <h2>Projetos</h2>
+    <p>Conheça os projetos e soluções desenvolvidos.</p>
+  </div>
+  <div class="projects-carousel" aria-label="Projetos. Deslize horizontalmente para navegar">
     <article class="auri-card" id="auri">
       <div class="auri-description">
         <span class="badge">✦ PROJETO PRINCIPAL</span>
@@ -50,35 +139,56 @@
         <p>Auri é uma assistente virtual para WhatsApp que atende, entende, responde, envia catálogos, coleta informações, agenda, tira dúvidas e realiza processos de forma automática.</p>
         <ul><li>Atendimento inteligente no WhatsApp</li><li>Envio de catálogos e mídias</li><li>Integração com n8n e APIs</li><li>Coleta de briefing e geração de conteúdo</li><li>Automação de processos do seu negócio</li></ul>
         <div class="auri-buttons"><a class="button button-purple" href="https://www.tmwstudio.com.br/auri-ia" target="_blank" rel="noreferrer">◉ &nbsp;Ver projeto <span>→</span></a></div>
-        <div class="tags"><span>WhatsApp</span><span>IA</span><span>n8n</span><span>APIs</span><span>Automação</span></div>
-      </div>
+<article class="project-card project-card-lounge">
+  <span class="project-label">PROJETO</span>
+  <h3>LoungePage — Barbearia</h3>
+  <p>
+    Página profissional para barbearia, desenvolvida para apresentar
+    os serviços, valorizar a identidade do negócio e facilitar o contato
+    de novos clientes pelo site.
+  </p>
+  <div class="project-tags">
+    <span>Site responsivo</span>
+    <span>Serviços</span>
+    <span>Presença digital</span>
+  </div>
+  <a class="project-link"
+     href="https://demo-barbearia-wesley.vercel.app/"
+     target="_blank" rel="noopener noreferrer">
+    Ver projeto <span aria-hidden="true">↗</span>
+  </a>
+</article>
 
-      <div class="phone-column phone-image-column">
-  <img src="wesley-ia-portfolio.png" alt="Wesley Santos como assistente de inteligência artificial">
-</div>
+<article class="project-card project-placeholder" aria-label="Espaço reservado para projeto 3">
+  <span class="placeholder-number">03</span>
+  <h3>Novo projeto</h3>
+  <p>Espaço reservado para adicionar um próximo projeto ao portfólio.</p>
+  <span class="placeholder-status">Em breve</span>
+</article>
 
-      <div class="automation-column">
+<article class="project-card project-placeholder" aria-label="Espaço reservado para projeto 4">
+  <span class="placeholder-number">04</span>
+  <h3>Novo projeto</h3>
+  <p>Espaço reservado para adicionar um próximo projeto ao portfólio.</p>
+  <span class="placeholder-status">Em breve</span>
+</article>
 
-        <ul><li>Fluxos no n8n</li><li>Integração com Evolution API</li><li>Respostas com IA (GPT)</li><li>Envio de catálogos e imagens</li><li>Registro e histórico de conversas</li><li>Personalização para seu negócio</li></ul>
-      </div>
-    </article>
+<article class="project-card project-placeholder" aria-label="Espaço reservado para projeto 5">
+  <span class="placeholder-number">05</span>
+  <h3>Novo projeto</h3>
+  <p>Espaço reservado para adicionar um próximo projeto ao portfólio.</p>
+  <span class="placeholder-status">Em breve</span>
+</article>
 
-    <article class="n8n-project-card" id="n8n">
-      <div class="n8n-project-image">
-        <img src="n8n-banner.png" alt="Automação com n8n">
-      </div>
-    </article>
+<article class="project-card project-placeholder" aria-label="Espaço reservado para projeto 6">
+  <span class="placeholder-number">06</span>
+  <h3>Novo projeto</h3>
+  <p>Espaço reservado para adicionar um próximo projeto ao portfólio.</p>
+  <span class="placeholder-status">Em breve</span>
+</article>
 
-    <div class="project-grid project-grid-featured">
-      <article class="project-card"><h3>Automações com IA</h3><p>Criação de fluxos inteligentes para automatizar tarefas e processos.</p><div class="automation-art automation-art-image"><img src="automacao-n8n-industrial.png" alt="Fluxo de automação com nós conectados no n8n"></div><div class="tags light-tags"><span>n8n</span><span>APIs</span><span>Webhooks</span></div><a class="details-link" href="#contato">Ver detalhes →</a></article>
-    </div>
-
-    <div class="project-grid">
-      <article class="project-card"><h3>Sites e Sistemas Web</h3><p>Desenvolvimento de sites, sistemas e painéis personalizados.</p><img class="dashboard-image" src="dashboard-wesley.png" alt="Dashboard de projetos e soluções digitais de Wesley Santos"><div class="tags light-tags"><span>React</span><span>Next.js</span><span>Supabase</span></div><a class="details-link" href="#contato">Ver detalhes →</a></article>
-
-      <article class="project-card"><h3>Integrações e APIs</h3><p>Conexões entre sistemas, APIs e serviços para seu negócio.</p><pre class="api-art"><span>fetch</span>(<b>'https://api.exemplo.com'</b>, {<br>  method: <em>'POST'</em>,<br>  headers: {<br>    'Content-Type': 'application/json'<br>  },<br>  body: JSON.stringify(data)<br>})</pre><div class="tags light-tags"><span>WhatsApp</span><span>APIs</span><span>Pagamentos</span><span>Outros</span></div><a class="details-link" href="#contato">Ver detalhes →</a></article>
-    </div>
-  </section>
+  </div>
+</section>
 
   <section class="bottom-section">
     <article class="about-card" id="sobre">
