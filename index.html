@@ -96,53 +96,28 @@
   .projects-carousel > .auri-card .phone-image-column img {
     display: block;
     width: 100%;
+    max-width: 290px;
+    max-height: 440px;
     height: auto;
     object-fit: contain;
+  }
+
+  .projects-carousel > .auri-card {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) !important;
+    align-content: start;
+  }
+
+  .projects-carousel > .auri-card .phone-image-column {
+    display: flex;
+    justify-content: center;
+    min-width: 0;
   }
 
   .projects-carousel > .auri-card .auri-description,
   .projects-carousel > .auri-card .phone-image-column,
   .projects-carousel > .auri-card .automation-column {
     min-width: 0;
-  }
-}
-
-/* Ajustes do card Auri dentro do carrossel */
-.projects-carousel > .auri-card {
-  grid-template-columns: minmax(0, 1.05fr) minmax(0, .75fr) minmax(0, .65fr) !important;
-  align-items: center;
-  overflow: hidden;
-}
-
-.projects-carousel > .auri-card .phone-image-column img {
-  display: block;
-  width: 100%;
-  max-width: 290px;
-  max-height: 440px;
-  height: auto;
-  object-fit: contain;
-}
-
-@media (max-width: 1050px) {
-  .projects-carousel > .auri-card {
-    grid-template-columns: minmax(0, 1fr) minmax(0, .8fr) !important;
-  }
-  .projects-carousel > .auri-card .automation-column {
-    grid-column: 1 / -1;
-  }
-}
-
-@media (max-width: 650px) {
-  .projects-carousel > .auri-card {
-    grid-template-columns: minmax(0, 1fr) !important;
-    gap: 20px;
-  }
-  .projects-carousel > .auri-card .automation-column {
-    grid-column: auto;
-  }
-  .projects-carousel > .auri-card .phone-image-column img {
-    width: 85%;
-    max-height: 380px;
   }
 }
 
