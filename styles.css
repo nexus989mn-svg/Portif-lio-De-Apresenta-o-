@@ -2110,3 +2110,54 @@ footer .brand-text small {
     font-size: 14px;
   }
 }
+
+
+/* HABILIDADES — IDENTIDADE VISUAL DAS TECNOLOGIAS */
+.skills > div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+
+.skills > div b {
+  width: 54px;
+  height: 54px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 15px;
+  background: #211b20;
+  border: 1px solid #393039;
+  font-family: Arial, sans-serif;
+  font-size: 23px;
+  font-weight: 800;
+}
+
+/* Cores características */
+.skills .js { color: #f7df1e; }
+.skills .ts { color: #3178c6; }
+.skills .react { color: #61dafb; }
+.skills .next { color: #ffffff; }
+.skills .node { color: #83cd29; }
+.skills .n8n { color: #ff6d5a; }
+.skills .supabase { color: #3ecf8e; }
+.skills .api { color: #e8b65c; }
+.skills .docker { color: #2496ed; }
+.skills .git { color: #f05032; }
+.skills .whatsapp { color: #25d366; }
+.skills .openai { color: #74aa9c; }
+
+.skills > div small {
+  font-size: 12px;
+  text-align: center;
+}
+
+@media (max-width: 600px) {
+  .skills > div b {
+    width: 48px;
+    height: 48px;
+    font-size: 21px;
+  }
+}
