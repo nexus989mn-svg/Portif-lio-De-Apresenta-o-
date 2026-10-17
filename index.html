@@ -221,24 +221,21 @@
 
 
 <style id="barber-club-card-styles">
+/* Mesmo dimensionamento dos demais cards do carrossel */
 .projects-carousel > .project-card.project-card-lounge {
   box-sizing: border-box;
   flex: 0 0 calc((100% - 20px) / 2);
   min-width: 0;
-}
-.projects-carousel .project-card.project-card-lounge .lounge-title {
-  font-size: 49px !important;
+  max-width: none;
+  width: auto;
 }
 @media (max-width: 650px) {
   .projects-carousel > .project-card.project-card-lounge {
-    flex: 0 0 calc(100% - 4px) !important;
-    width: calc(100% - 4px) !important;
-    min-width: calc(100% - 4px) !important;
-    max-width: calc(100% - 4px) !important;
+    flex: 0 0 84%;
+    min-width: 0;
+    max-width: none;
+    width: auto;
     padding: 20px;
-  }
-  .projects-carousel .project-card.project-card-lounge .lounge-title {
-    font-size: 45px !important;
   }
 }
 </style>
