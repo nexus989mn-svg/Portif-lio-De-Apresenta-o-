@@ -2006,3 +2006,44 @@ footer > span {
     grid-template-columns: minmax(0, 1fr);
   }
 }
+
+/* AURI: IMAGEM MAIOR, SEM CARTAO AZUL AO FUNDO */
+.auri-card .phone-column {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 0;
+  padding: 0;
+  overflow: visible;
+  background: transparent !important;
+  border: 0 !important;
+  box-shadow: none !important;
+}
+
+.auri-card .phone-column img {
+  display: block;
+  width: 100%;
+  max-width: 430px;
+  max-height: none;
+  height: auto;
+  object-fit: contain;
+  border-radius: 0;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+@media (max-width: 760px) {
+  .auri-card .phone-column {
+    width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .auri-card .phone-column img {
+    width: 100%;
+    max-width: 440px;
+    max-height: none;
+    height: auto;
+    margin: 0 auto;
+  }
+}
