@@ -40,13 +40,13 @@
   align-items: stretch;
   box-sizing: border-box;
   height: 100%;
-  min-height: 100%;
   background: linear-gradient(145deg, #171619, #101012);
   border: 1px solid #29272d !important;
   border-radius: 22px;
   padding: 24px;
   color: #f4f2f7;
 }
+
 .project-card-lounge .lounge-title {
   display: block;
   margin: 19px 0 12px;
@@ -57,6 +57,7 @@
   font-weight: 800;
   color: #f4f2f7;
 }
+
 .project-card-lounge .lounge-demo-title {
   display: block;
   width: 100%;
@@ -67,30 +68,18 @@
   line-height: 1.5;
   color: #aaa7b3;
 }
-.project-card-lounge .lounge-image-placeholder {
-  width: 100%;
-  min-height: 170px;
-  box-sizing: border-box;
-  margin: 0 0 16px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px dashed #45414a;
-  border-radius: 14px;
-  background: #101012;
-  color: #aaa7b3;
-  text-align: center;
-}
+
 .project-card-lounge .lounge-description {
   color: #aaa7b3;
   line-height: 1.75;
 }
+
 .project-card-lounge .lounge-project-button {
   display: inline-flex;
   align-items: center;
   justify-content: center;
   align-self: flex-start;
-  margin-top: auto;
+  margin-top: 24px;
   padding: 12px 18px;
   border: 0;
   border-radius: 10px;
@@ -99,28 +88,16 @@
   font-weight: 750;
   text-decoration: none;
 }
+
 .project-card-lounge .lounge-project-button:hover {
   background: #bd9220;
 }
-@media (max-width: 650px) {
-  .projects-carousel > .project-card-lounge {
-    min-height: 0;
-  }
-  .project-card-lounge .lounge-image-placeholder {
-    min-height: 150px;
-  }
-}
-/* LOUNGEPAGE CARD CUSTOM END */
-.project-card-lounge .lounge-demo-title {
-  margin: 0 0 16px;
-  text-align: center;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #aaa7b3;
-}
+
 .project-card-lounge .lounge-image-placeholder {
+  width: 100%;
   min-height: 170px;
-  margin: 0 0 16px;
+  box-sizing: border-box;
+  margin: 24px 0 0;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -130,6 +107,17 @@
   color: #aaa7b3;
   text-align: center;
 }
+
+@media (max-width: 650px) {
+  .projects-carousel > .project-card-lounge {
+    min-height: 0;
+  }
+
+  .project-card-lounge .lounge-image-placeholder {
+    min-height: 150px;
+  }
+}
+/* LOUNGEPAGE CARD CUSTOM END */
 .projects-carousel .project-card h3 {
   margin: 12px 0;
   font-size: clamp(1.15rem, 2.2vw, 1.65rem);
@@ -220,38 +208,6 @@
 </style>
 
 
-<style id="barber-club-card-styles">
-/* Mesmo dimensionamento dos demais cards do carrossel */
-.projects-carousel > .project-card.project-card-lounge {
-  box-sizing: border-box;
-  flex: 0 0 calc((100% - 20px) / 2);
-  min-width: 0;
-  max-width: none;
-  width: auto;
-}
-@media (max-width: 650px) {
-  .projects-carousel > .project-card.project-card-lounge {
-    flex: 0 0 84%;
-    min-width: 0;
-    max-width: none;
-    width: auto;
-    padding: 20px;
-  }
-}
-
-/* CORREÇÃO: PADRÃO DE ALTURA DOS CARDS */
-.projects-carousel {
-  align-items: stretch !important;
-}
-
-.projects-carousel > .project-card.project-card-lounge {
-  align-self: stretch !important;
-  height: auto !important;
-  min-height: 100% !important;
-  box-sizing: border-box !important;
-}
-
-</style>
 
 </head>
 <body>
