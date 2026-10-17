@@ -33,7 +33,76 @@
   padding: 24px;
   background: linear-gradient(145deg, #171619, #101012);
 }
-.project-card-lounge { border-color: #45304b !important; }
+/* LOUNGEPAGE CARD CUSTOM START */
+.project-card-lounge {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  box-sizing: border-box;
+  height: 100%;
+  min-height: 100%;
+  background: linear-gradient(145deg, #171619, #101012);
+  border: 1px solid #29272d !important;
+  border-radius: 22px;
+  padding: 24px;
+  color: #f4f2f7;
+}
+.project-card-lounge .lounge-title {
+  margin: 12px 0 8px;
+  text-align: center;
+  font-size: clamp(1.15rem, 2.2vw, 1.65rem);
+}
+.project-card-lounge .lounge-demo-title {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #aaa7b3;
+}
+.project-card-lounge .lounge-image-placeholder {
+  width: 100%;
+  min-height: 170px;
+  box-sizing: border-box;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #45414a;
+  border-radius: 14px;
+  background: #101012;
+  color: #aaa7b3;
+  text-align: center;
+}
+.project-card-lounge .lounge-description {
+  color: #aaa7b3;
+  line-height: 1.75;
+}
+.project-card-lounge .lounge-project-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  align-self: flex-start;
+  margin-top: auto;
+  padding: 12px 18px;
+  border: 0;
+  border-radius: 10px;
+  background: #d4a72c;
+  color: #fff;
+  font-weight: 750;
+  text-decoration: none;
+}
+.project-card-lounge .lounge-project-button:hover {
+  background: #bd9220;
+}
+@media (max-width: 650px) {
+  .projects-carousel > .project-card-lounge {
+    min-height: 0;
+  }
+  .project-card-lounge .lounge-image-placeholder {
+    min-height: 150px;
+  }
+}
+/* LOUNGEPAGE CARD CUSTOM END */
 .project-card-lounge .lounge-demo-title {
   margin: 0 0 16px;
   text-align: center;
@@ -204,19 +273,26 @@
 
 <article class="project-card project-card-lounge">
   <span class="project-label">PROJETO</span>
-  <h3>LoungePage</h3>
-  <p class="lounge-demo-title">Demonstrativo de LoungePage para Barbearia</p>
-  <div class="lounge-image-placeholder" aria-label="Espaço reservado para imagem do projeto">
+  <h3 class="lounge-title">LoungePage</h3>
+
+  <p class="lounge-demo-title">
+    Demonstrativo de LoungePage para Barbearia
+  </p>
+
+  <div class="lounge-image-placeholder"
+       aria-label="Espaço reservado para imagem do projeto LoungePage">
     <span>Imagem do projeto</span>
   </div>
-  <p>
-    Projeto de página para barbearia, apresentado como demonstração
-    do trabalho desenvolvido.
+
+  <p class="lounge-description">
+    Uma demonstração de página para barbearia, com apresentação
+    profissional do projeto.
   </p>
-  <a class="project-link"
+
+  <a class="lounge-project-button"
      href="https://demo-barbearia-wesley.vercel.app/"
      target="_blank" rel="noopener noreferrer">
-    Ver projeto <span aria-hidden="true">↗</span>
+    Conhecer projeto ↗
   </a>
 </article>
 
