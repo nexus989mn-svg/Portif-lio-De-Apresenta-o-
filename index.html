@@ -34,6 +34,25 @@
   background: linear-gradient(145deg, #171619, #101012);
 }
 .project-card-lounge { border-color: #45304b !important; }
+.project-card-lounge .lounge-demo-title {
+  margin: 0 0 16px;
+  text-align: center;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: #aaa7b3;
+}
+.project-card-lounge .lounge-image-placeholder {
+  min-height: 170px;
+  margin: 0 0 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 1px dashed #45414a;
+  border-radius: 14px;
+  background: #101012;
+  color: #aaa7b3;
+  text-align: center;
+}
 .projects-carousel .project-card h3 {
   margin: 12px 0;
   font-size: clamp(1.15rem, 2.2vw, 1.65rem);
@@ -185,17 +204,15 @@
 
 <article class="project-card project-card-lounge">
   <span class="project-label">PROJETO</span>
-  <h3>LoungePage — Barbearia</h3>
-  <p>
-    Página profissional para barbearia, desenvolvida para apresentar
-    os serviços, valorizar a identidade do negócio e facilitar o contato
-    de novos clientes pelo site.
-  </p>
-  <div class="project-tags">
-    <span>Site responsivo</span>
-    <span>Serviços</span>
-    <span>Presença digital</span>
+  <h3>LoungePage</h3>
+  <p class="lounge-demo-title">Demonstrativo de LoungePage para Barbearia</p>
+  <div class="lounge-image-placeholder" aria-label="Espaço reservado para imagem do projeto">
+    <span>Imagem do projeto</span>
   </div>
+  <p>
+    Projeto de página para barbearia, apresentado como demonstração
+    do trabalho desenvolvido.
+  </p>
   <a class="project-link"
      href="https://demo-barbearia-wesley.vercel.app/"
      target="_blank" rel="noopener noreferrer">
