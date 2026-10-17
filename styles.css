@@ -1713,3 +1713,62 @@ footer > span {
     transition-duration: .01ms !important;
   }
 }
+
+/* CORREÇÃO DA IDENTIDADE VISUAL WS */
+.header .brand {
+  gap: 13px;
+}
+
+.header .brand-logo {
+  width: 78px;
+  height: 48px;
+  flex: 0 0 78px;
+  padding: 3px;
+  box-sizing: border-box;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+.header .brand-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+.header .brand-text strong {
+  font-size: 14px;
+  letter-spacing: -.3px;
+}
+
+.header .brand-text small {
+  font-size: 10px;
+}
+
+@media (max-width: 760px) {
+  .header .brand {
+    gap: 10px;
+  }
+
+  .header .brand-logo {
+    width: 68px;
+    height: 42px;
+    flex-basis: 68px;
+    padding: 2px;
+  }
+
+  .header .brand-text strong {
+    font-size: 13px;
+  }
+
+  .header .brand-text small {
+    font-size: 9px;
+  }
+}
