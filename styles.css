@@ -2195,3 +2195,79 @@ footer .brand-text small {
   width: 100%;
   height: 100%;
 }
+
+/* ESPAÇAMENTO E SEPARAÇÃO DOS PROJETOS */
+.projects.section {
+  padding-bottom: 56px;
+}
+
+.projects .section-title {
+  margin-bottom: 32px;
+}
+
+.projects .auri-card {
+  margin-bottom: 40px !important;
+}
+
+.projects .n8n-project-card {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+}
+
+.projects .project-grid {
+  margin-top: 32px !important;
+  margin-bottom: 40px !important;
+  gap: 24px;
+}
+
+.projects .project-grid-featured {
+  margin-top: 40px !important;
+  margin-bottom: 40px !important;
+}
+
+.projects .project-card {
+  min-width: 0;
+  height: 100%;
+}
+
+.projects .project-card + .project-card {
+  margin-top: 0;
+}
+
+/* Separação entre projetos e seção Sobre */
+.bottom-section {
+  margin-top: 48px !important;
+  gap: 28px;
+}
+
+/* Ajustes para celular */
+@media (max-width: 700px) {
+  .projects.section {
+    padding-bottom: 32px;
+  }
+
+  .projects .section-title {
+    margin-bottom: 24px;
+  }
+
+  .projects .auri-card {
+    margin-bottom: 32px !important;
+  }
+
+  .projects .n8n-project-card {
+    margin-top: 32px !important;
+    margin-bottom: 32px !important;
+  }
+
+  .projects .project-grid,
+  .projects .project-grid-featured {
+    margin-top: 24px !important;
+    margin-bottom: 32px !important;
+    gap: 20px;
+  }
+
+  .bottom-section {
+    margin-top: 24px !important;
+    gap: 24px !important;
+  }
+}
