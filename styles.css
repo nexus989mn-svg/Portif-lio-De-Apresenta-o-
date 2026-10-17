@@ -2188,3 +2188,10 @@ footer .brand-text small {
     padding: 10px;
   }
 }
+
+/* Ícone OpenAI em SVG local */
+.skills > div b.openai.tech-logo svg {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
