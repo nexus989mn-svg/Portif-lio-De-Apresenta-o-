@@ -231,8 +231,10 @@
 }
 @media (max-width: 650px) {
   .projects-carousel > .project-card.project-card-lounge {
-    flex: 0 0 84%;
-    min-width: 0;
+    flex: 0 0 calc(100% - 4px) !important;
+    width: calc(100% - 4px) !important;
+    min-width: calc(100% - 4px) !important;
+    max-width: calc(100% - 4px) !important;
     padding: 20px;
   }
   .projects-carousel .project-card.project-card-lounge .lounge-title {
