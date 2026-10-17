@@ -2047,3 +2047,66 @@ footer > span {
     margin: 0 auto;
   }
 }
+
+/* RODAPE — PRESERVAR A IDENTIDADE VISUAL WS */
+footer .brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+}
+
+footer .brand-logo {
+  width: 78px;
+  height: 48px;
+  flex: 0 0 78px;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: visible;
+  box-sizing: border-box;
+  background: transparent;
+  border: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+
+footer .brand-logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  object-position: center;
+}
+
+footer .brand-text {
+  min-width: 0;
+}
+
+footer .brand-text strong {
+  font-size: 15px;
+}
+
+footer .brand-text small {
+  font-size: 11px;
+}
+
+@media (max-width: 600px) {
+  footer {
+    gap: 22px;
+  }
+
+  footer .brand {
+    gap: 12px;
+  }
+
+  footer .brand-logo {
+    width: 72px;
+    height: 44px;
+    flex-basis: 72px;
+  }
+
+  footer .brand-text strong {
+    font-size: 14px;
+  }
+}
