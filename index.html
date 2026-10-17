@@ -219,6 +219,28 @@
 
 </style>
 
+
+<style id="barber-club-card-styles">
+.projects-carousel > .project-card.project-card-lounge {
+  box-sizing: border-box;
+  flex: 0 0 calc((100% - 20px) / 2);
+  min-width: 0;
+}
+.projects-carousel .project-card.project-card-lounge .lounge-title {
+  font-size: 49px !important;
+}
+@media (max-width: 650px) {
+  .projects-carousel > .project-card.project-card-lounge {
+    flex: 0 0 84%;
+    min-width: 0;
+    padding: 20px;
+  }
+  .projects-carousel .project-card.project-card-lounge .lounge-title {
+    font-size: 45px !important;
+  }
+}
+</style>
+
 </head>
 <body>
 <header class="header">
@@ -367,95 +389,5 @@
 </main>
 <footer><a class="brand" href="#inicio"><span class="brand-logo"><img src="logo-ws.png" alt="Monograma WS"></span><span class="brand-text"><strong>Wesley Santos</strong><small>Desenvolvedor de Soluções com IA</small></span></a><span>Portfólio pessoal · 2026</span></footer>
 <script src="script.js"></script>
-
-<style id="barber-club-card-styles">
-.projects-carousel .project-card.project-card-lounge {
-  box-sizing: border-box;
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  background: linear-gradient(145deg, #171619, #101012);
-  border: 1px solid #29272d !important;
-  border-radius: 22px;
-  padding: 24px;
-  color: #f4f2f7;
-}
-.projects-carousel .project-card.project-card-lounge .lounge-title {
-  display: block;
-  margin: 19px 0 10px;
-  font-size: 49px !important;
-  line-height: 1.1;
-  letter-spacing: -1.8px;
-  font-weight: 800;
-  text-align: left;
-  color: #f4f2f7;
-}
-.projects-carousel .project-card.project-card-lounge .lounge-demo-title {
-  margin: 0 0 18px;
-  text-align: center;
-  font-size: 1rem;
-  line-height: 1.5;
-  color: #aaa7b3;
-}
-.projects-carousel .project-card.project-card-lounge .lounge-description p {
-  color: #b6b6c1;
-  font-size: 14px;
-  line-height: 1.85;
-}
-.projects-carousel .project-card.project-card-lounge .lounge-features {
-  list-style: none;
-  padding: 0;
-  margin: 14px 0 18px;
-}
-.projects-carousel .project-card.project-card-lounge .lounge-features li {
-  margin: 10px 0;
-  color: #d1d1da;
-  font-size: 13px;
-  line-height: 1.6;
-}
-.projects-carousel .project-card.project-card-lounge .lounge-features li::before {
-  content: "✓";
-  color: #ff555c;
-  font-weight: 800;
-  margin-right: 10px;
-}
-.projects-carousel .project-card.project-card-lounge .lounge-project-button {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  align-self: flex-start;
-  margin: 12px 0 24px;
-  padding: 13px 20px;
-  border: 0;
-  border-radius: 10px;
-  background: #b68a3a;
-  color: #fff !important;
-  font-weight: 750;
-  text-decoration: none;
-}
-.projects-carousel .project-card.project-card-lounge .lounge-image-placeholder {
-  width: 100%;
-  min-height: 220px;
-  box-sizing: border-box;
-  margin-top: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 1px dashed #45414a;
-  border-radius: 14px;
-  background: #101012;
-  color: #aaa7b3;
-  text-align: center;
-}
-@media (max-width: 650px) {
-  .projects-carousel .project-card.project-card-lounge .lounge-title {
-    font-size: 45px !important;
-  }
-
-  .projects-carousel .project-card.project-card-lounge .lounge-image-placeholder {
-    min-height: 180px;
-  }
-}
-</style>
 
 </body></html>
