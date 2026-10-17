@@ -1772,3 +1772,237 @@ footer > span {
     font-size: 9px;
   }
 }
+
+/* AURI IA — PAINEL REORGANIZADO */
+.auri-card {
+  grid-template-columns: minmax(0, 1.1fr) minmax(220px, .75fr);
+  align-items: center;
+  gap: 28px;
+  padding: clamp(22px, 3.5vw, 38px);
+  border: 1px solid rgba(168, 111, 255, .19);
+  border-radius: 24px;
+  background:
+    radial-gradient(ellipse at 80% 25%, rgba(121, 65, 205, .12), transparent 48%),
+    linear-gradient(145deg, #17141d, #101013 75%);
+}
+
+.auri-description {
+  min-width: 0;
+}
+
+.auri-description h2 {
+  margin: 16px 0 5px;
+  font-size: clamp(36px, 4vw, 49px);
+  letter-spacing: -1.8px;
+}
+
+.auri-description h3 {
+  max-width: 430px;
+  margin-bottom: 12px;
+  font-size: 14px;
+  line-height: 1.6;
+}
+
+.auri-description > p {
+  max-width: 500px;
+  margin: 12px 0 16px;
+  font-size: 12px;
+  line-height: 1.8;
+}
+
+.auri-description ul {
+  display: grid;
+  gap: 7px;
+  margin: 15px 0;
+  padding: 0;
+  list-style: none;
+  font-size: 12px;
+  line-height: 1.6;
+}
+
+.auri-description ul li {
+  position: relative;
+  padding-left: 23px;
+}
+
+.auri-description ul li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #ff5266;
+  font-weight: 800;
+}
+
+.auri-description li::marker {
+  content: "";
+}
+
+.auri-buttons {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 9px;
+  margin-top: 18px;
+}
+
+.auri-buttons .button {
+  min-height: 43px;
+  padding: 0 15px;
+  font-size: 12px;
+}
+
+.auri-buttons .button-purple {
+  color: white;
+  background: linear-gradient(135deg, #8750e8, #6337bc);
+  border: 1px solid rgba(184, 145, 255, .24);
+  box-shadow: none;
+}
+
+.auri-buttons .button-outline-dark {
+  color: #ded7e9;
+  background: rgba(255,255,255,.035);
+  border: 1px solid rgba(255,255,255,.11);
+}
+
+.auri-card .tags {
+  gap: 6px;
+  margin-top: 15px;
+}
+
+.auri-card .tags span {
+  padding: 6px 9px;
+  font-size: 10px;
+  border-radius: 7px;
+}
+
+.phone-column {
+  min-width: 0;
+  padding: 12px;
+  border: 1px solid rgba(168, 111, 255, .13);
+  border-radius: 19px;
+  background: radial-gradient(ellipse at center, rgba(83, 48, 132, .12), transparent 72%);
+}
+
+.phone-column img {
+  display: block;
+  width: 100%;
+  max-width: 300px;
+  max-height: 370px;
+  object-fit: contain;
+}
+
+.automation-column {
+  grid-column: 1 / -1;
+  padding: 15px 18px;
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 14px;
+  background: rgba(255,255,255,.025);
+}
+
+.automation-column ul {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 8px 20px;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  color: #bcb7c6;
+  font-size: 11px;
+  line-height: 1.65;
+}
+
+.automation-column li {
+  position: relative;
+  padding-left: 17px;
+}
+
+.automation-column li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: #b38aff;
+  font-weight: 800;
+}
+
+.automation-column li::marker {
+  content: "";
+}
+
+@media (max-width: 760px) {
+  .auri-card {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 17px;
+    padding: 21px 17px;
+    border-radius: 20px;
+  }
+
+  .auri-description h2 {
+    margin-top: 12px;
+    font-size: 39px;
+  }
+
+  .auri-description h3 {
+    font-size: 13px;
+  }
+
+  .auri-description > p {
+    font-size: 12px;
+    line-height: 1.8;
+  }
+
+  .auri-description ul {
+    gap: 9px;
+    font-size: 12px;
+  }
+
+  .auri-buttons {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+    gap: 8px;
+  }
+
+  .auri-buttons .button {
+    width: 100%;
+    min-height: 44px;
+    padding: 0 8px;
+    gap: 6px;
+    font-size: 11px;
+  }
+
+  .auri-card .tags {
+    margin-top: 13px;
+  }
+
+  .phone-column {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 9px;
+    border-radius: 15px;
+  }
+
+  .phone-column img {
+    width: 100%;
+    max-width: 260px;
+    max-height: 330px;
+  }
+
+  .automation-column {
+    grid-column: auto;
+    padding: 15px;
+  }
+
+  .automation-column ul {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    font-size: 10px;
+  }
+}
+
+@media (max-width: 380px) {
+  .auri-buttons {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .automation-column ul {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
