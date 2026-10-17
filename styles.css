@@ -688,3 +688,215 @@ header a,
   border-radius: 12px;
   margin: 16px 0;
 }
+
+
+
+/* ===== REFINAMENTO VISUAL CONTROLADO ===== */
+:root {
+  color-scheme: dark;
+  --accent-red: #ff3038;
+  --accent-red-light: #ff5a61;
+  --surface: #101116;
+  --surface-raised: #15171e;
+  --border-subtle: rgba(255,255,255,.10);
+  --text-primary: #f7f7fa;
+  --text-secondary: #b9bdc8;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 90px;
+}
+
+body {
+  background: #070709;
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+.header {
+  background: rgba(8,8,10,.94);
+  border-bottom: 1px solid var(--border-subtle);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+}
+
+.hero,
+.projects,
+.bottom-section,
+.contact {
+  color: var(--text-primary);
+}
+
+.hero h1 {
+  letter-spacing: -.045em;
+  line-height: 1.08;
+  text-wrap: balance;
+}
+
+.hero h1 em {
+  color: var(--accent-red-light);
+}
+
+.hero-copy p,
+.section-title p,
+.project-card p,
+.auri-description p,
+.about-card p,
+.contact p {
+  color: var(--text-secondary);
+  line-height: 1.75;
+}
+
+/* Retira os fundos brancos artificiais dos parágrafos. */
+.about-card p,
+.contact p {
+  display: block;
+  width: auto;
+  padding: 0;
+  border-radius: 0;
+  background: transparent !important;
+  color: var(--text-secondary) !important;
+  font-weight: 400;
+}
+
+/* Superfícies consistentes para projetos e informações. */
+.project-card,
+.auri-card,
+.n8n-project-card,
+.about-card,
+.skills-card {
+  background-color: var(--surface) !important;
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  box-shadow: 0 12px 35px rgba(0,0,0,.16);
+}
+
+.project-card,
+.about-card,
+.skills-card,
+.auri-card {
+  min-width: 0;
+}
+
+.project-card,
+.about-card,
+.skills-card {
+  padding: clamp(18px, 3vw, 28px);
+}
+
+.project-card h3,
+.about-card h2,
+.skills-card h2,
+.auri-card h2,
+.auri-card h3,
+.section-title h2,
+.contact h2 {
+  color: var(--text-primary);
+  letter-spacing: -.025em;
+}
+
+.tags span {
+  border: 1px solid rgba(255,48,56,.22);
+  border-radius: 999px;
+}
+
+.button {
+  min-height: 44px;
+  transition: transform .18s ease, border-color .18s ease,
+              background-color .18s ease;
+}
+
+.button:hover {
+  transform: translateY(-2px);
+}
+
+.button:focus-visible,
+.nav a:focus-visible,
+.details-link:focus-visible,
+.nav-toggle:focus-visible {
+  outline: 2px solid var(--accent-red-light);
+  outline-offset: 4px;
+}
+
+.service-icon {
+  flex-shrink: 0;
+}
+
+.hero-reference,
+.phone-image-column img,
+.dashboard-image,
+.automation-art img,
+.n8n-project-image img,
+.about-art img {
+  max-width: 100%;
+}
+
+@media (min-width: 900px) {
+  .section {
+    scroll-margin-top: 96px;
+  }
+
+  .project-card:hover {
+    border-color: rgba(255,48,56,.38);
+  }
+}
+
+@media (max-width: 640px) {
+  html {
+    scroll-padding-top: 72px;
+  }
+
+  .hero h1 {
+    font-size: clamp(2rem, 8vw, 3rem);
+  }
+
+  .hero-copy p,
+  .section-title p,
+  .project-card p,
+  .auri-description p,
+  .about-card p,
+  .contact p {
+    font-size: 14px;
+    line-height: 1.7;
+  }
+
+  .project-card,
+  .about-card,
+  .skills-card {
+    border-radius: 14px;
+  }
+
+  .hero-buttons,
+  .auri-buttons {
+    flex-wrap: wrap;
+  }
+
+  .hero-buttons .button,
+  .auri-buttons .button {
+    max-width: 100%;
+  }
+
+  .services-strip {
+    gap: 12px;
+  }
+
+  .contact {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: .01ms !important;
+    transition-duration: .01ms !important;
+  }
+}
+/* ===== FIM DO REFINAMENTO VISUAL ===== */
