@@ -147,6 +147,27 @@
   margin-right: 9px;
 }
 
+
+/* IMAGEM DO PROJETO BARBER CLUB */
+.project-card-lounge .lounge-image {
+  display: block;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid #343039;
+  border-radius: 14px;
+  background: #101012;
+  aspect-ratio: 4 / 5;
+  min-height: 0;
+}
+
+.project-card-lounge .lounge-image img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+}
+
 /* LOUNGEPAGE CARD CUSTOM END */
 
 /* ALINHAMENTO DA ALTURA DOS CARDS */
@@ -357,9 +378,12 @@
     Conhecer projeto ↗
   </a>
 
-  <div class="lounge-image-placeholder"
-       aria-label="Espaço reservado para imagem do projeto Barber Club">
-    <span>Imagem do projeto</span>
+  <div class="lounge-image-placeholder lounge-image">
+    <img
+      src="/barber-club-card.png"
+      alt="Barbeiro robótico cortando o cabelo de um cliente robótico no Barber Club"
+      loading="lazy"
+    >
   </div>
 </article>
 
