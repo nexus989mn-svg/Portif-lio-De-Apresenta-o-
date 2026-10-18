@@ -2271,3 +2271,144 @@ footer .brand-text small {
     gap: 24px !important;
   }
 }
+
+/* AJUSTE PONTUAL — CARD BARBER CLUB E TEXTOS DOS PROJETOS */
+
+/* Mantém a altura e a imagem atuais do Barber Club */
+.projects-carousel > .project-card-lounge {
+  height: 100% !important;
+  min-height: 100% !important;
+  align-self: stretch !important;
+}
+
+/* Transforma as informações abaixo da foto em um card */
+.project-card-lounge .lounge-bottom-info {
+  flex: 1 0 auto;
+  min-width: 0;
+  margin-top: 22px;
+  padding: 22px 20px;
+  border: 1px solid #343039;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #19181c, #111113);
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Ajusta o título dentro do card de informações */
+.project-card-lounge .lounge-bottom-info strong {
+  display: block;
+  margin: 0 0 12px;
+  color: #e0bd68;
+  font-size: 16px;
+  line-height: 1.55;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Espaçamento e leitura do texto */
+.project-card-lounge .lounge-bottom-info p {
+  margin: 0 0 18px;
+  color: #b6b6c1;
+  font-size: 14px;
+  line-height: 1.85;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Evita que as informações douradas fiquem espremidas */
+.project-card-lounge .lounge-bottom-info span {
+  display: block;
+  color: #d6b15e;
+  font-size: 13px;
+  line-height: 1.9;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Impede que palavras dos cards sejam cortadas no meio */
+.projects-carousel .project-card h3,
+.projects-carousel .project-card .project-label,
+.projects-carousel .project-card .placeholder-status {
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+/* Mantém os títulos e status legíveis nos cards reservados */
+.projects-carousel .project-placeholder h3,
+.projects-carousel .project-placeholder .placeholder-status {
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.6;
+}
+
+
+/* AJUSTE PONTUAL — CARD BARBER CLUB E TEXTOS DOS PROJETOS */
+
+/* Mantém a altura e a imagem atuais do Barber Club */
+.projects-carousel > .project-card-lounge {
+  height: 100% !important;
+  min-height: 100% !important;
+  align-self: stretch !important;
+}
+
+/* Transforma as informações abaixo da foto em um card */
+.project-card-lounge .lounge-bottom-info {
+  flex: 1 0 auto;
+  min-width: 0;
+  margin-top: 22px;
+  padding: 22px 20px;
+  border: 1px solid #343039;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #19181c, #111113);
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Ajusta o título dentro do card de informações */
+.project-card-lounge .lounge-bottom-info strong {
+  display: block;
+  margin: 0 0 12px;
+  color: #e0bd68;
+  font-size: 16px;
+  line-height: 1.55;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Espaçamento e leitura do texto */
+.project-card-lounge .lounge-bottom-info p {
+  margin: 0 0 18px;
+  color: #b6b6c1;
+  font-size: 14px;
+  line-height: 1.85;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Evita que as informações douradas fiquem espremidas */
+.project-card-lounge .lounge-bottom-info span {
+  display: block;
+  color: #d6b15e;
+  font-size: 13px;
+  line-height: 1.9;
+  overflow-wrap: normal;
+  word-break: normal;
+}
+
+/* Impede que palavras dos cards sejam cortadas no meio */
+.projects-carousel .project-card h3,
+.projects-carousel .project-card .project-label,
+.projects-carousel .project-card .placeholder-status {
+  word-break: normal;
+  overflow-wrap: normal;
+  hyphens: none;
+}
+
+/* Mantém os títulos e status legíveis nos cards reservados */
+.projects-carousel .project-placeholder h3,
+.projects-carousel .project-placeholder .placeholder-status {
+  max-width: 100%;
+  white-space: normal;
+  line-height: 1.6;
+}
