@@ -2412,3 +2412,76 @@ footer .brand-text small {
   white-space: normal;
   line-height: 1.6;
 }
+
+/* CORRECAO DO ESPACO INTERNO — BARBER CLUB */
+.project-card-lounge {
+  display: flex;
+  flex-direction: column;
+}
+
+.project-card-lounge .lounge-bottom-info {
+  flex: 1 0 280px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  box-sizing: border-box;
+  width: 100%;
+  min-width: 0;
+  margin-top: 22px;
+  padding: 32px 28px;
+}
+
+.project-card-lounge .lounge-bottom-info strong {
+  font-size: 22px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.project-card-lounge .lounge-bottom-info p {
+  font-size: 19px;
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+
+.project-card-lounge .lounge-bottom-info span {
+  font-size: 17px;
+  line-height: 1.9;
+}
+
+/* Mantem a altura do card e a imagem existentes */
+.projects-carousel > .project-card-lounge {
+  height: 100% !important;
+  min-height: 100% !important;
+}
+\n
+/* AJUSTE DO CARD DE INFORMACOES BARBER CLUB */
+.project-card-lounge .lounge-bottom-info {
+  flex: 1 0 420px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  width: 100%;
+  min-height: 420px;
+  margin-top: 22px;
+  padding: 32px 28px;
+  border: 1px solid #343039;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #19181c, #111113);
+}
+
+.project-card-lounge .lounge-bottom-info strong {
+  font-size: 24px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.project-card-lounge .lounge-bottom-info p {
+  font-size: 20px;
+  line-height: 1.9;
+  margin-bottom: 24px;
+}
+
+.project-card-lounge .lounge-bottom-info span {
+  font-size: 18px;
+  line-height: 1.9;
+}
