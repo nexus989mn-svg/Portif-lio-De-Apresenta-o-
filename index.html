@@ -35,6 +35,8 @@
 }
 /* LOUNGEPAGE CARD CUSTOM START */
 .project-card-lounge {
+  position: relative;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
   align-items: stretch;
@@ -66,7 +68,7 @@
   text-align: center;
   font-size: 1rem;
   line-height: 1.5;
-  color: #aaa7b3;
+  color: #d6b15e;
 }
 
 .project-card-lounge .lounge-description {
@@ -166,6 +168,26 @@
   height: 100%;
   object-fit: cover;
   object-position: center;
+}
+
+/* DETALHES DOURADOS EXCLUSIVOS DO BARBER CLUB */
+.project-card-lounge::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 12%;
+  right: 12%;
+  height: 2px;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    #a87924 20%,
+    #e0bd68 50%,
+    #a87924 80%,
+    transparent
+  );
+  opacity: 0.9;
+  pointer-events: none;
 }
 
 /* LOUNGEPAGE CARD CUSTOM END */
